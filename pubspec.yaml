@@ -13,6 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^0.13.3
+  excel: ^2.0.9
   provider: ^6.0.0
   flutter_localizations:
     sdk: flutter
@@ -29,6 +30,6 @@ flutter:
   # Enable generation of localized Strings from arb files.
   generate: true
 
- # assets:
+  assets:
     # Add assets from the images directory to the application.
-   # - assets/images/
+   - assets/products.xlsx

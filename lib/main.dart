@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ChatViewModel()),
       ],
       child: MaterialApp(
-        title: 'ChatBot App',
+        title: 'ChatGPT App',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
@@ -34,7 +34,7 @@ class ChatScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('ChatBot App'),
+        title: Text('ChatGPT App'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
