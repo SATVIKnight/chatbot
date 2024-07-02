@@ -1,0 +1,1 @@
+check WA for the key. add the key in the chat_service file in the "final String apiKey = ____ "
