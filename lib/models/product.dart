@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 968b99d (hmmm)
 import 'package:excel/excel.dart';
 
 class Product {
