@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 class ChatGPTService {
   final String apiKey =
-      'sk-proj-4NESHvJFdtSCHd6dAdmgT3BlbkFJs9arVlXxo2fvszrtGDVy';
+      'sk-proj-12JvpCFYQ8BxW3lqcJtdT3BlbkFJJXLuI7cZ2mrDjlgGZ2LT';
 
   Future<String> getChatResponse(String prompt) async {
     final url = Uri.parse('https://api.openai.com/v1/chat/completions');

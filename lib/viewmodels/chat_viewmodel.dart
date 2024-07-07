@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../services/chat_service.dart';
 import '../services/product_service.dart';
 import '../models/chat_message.dart';
-import '../models/product.dart';
 
 class ChatViewModel extends ChangeNotifier {
   final ChatGPTService _chatGPTService = ChatGPTService();
@@ -25,8 +24,8 @@ class ChatViewModel extends ChangeNotifier {
 
     // Check for recommendation request
     if (prompt.toLowerCase().contains('recommend')) {
-      final keyword = prompt.split('recommend').last.trim();
-      final recommendedProducts = _productService.recommendProducts(keyword);
+      final recommendedProducts =
+          await _productService.recommendProducts(prompt);
       final response = _formatProductRecommendations(recommendedProducts);
       _messages.add(ChatMessage(response, 'assistant'));
     } else {
@@ -36,19 +35,11 @@ class ChatViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  String _formatProductRecommendations(List<Product> products) {
-    if (products.isEmpty) {
+  String _formatProductRecommendations(List<String> productNames) {
+    if (productNames.isEmpty) {
       return 'No products found for the specified keyword.';
     }
 
-    return products
-        .map((product) => 'Product Name: ${product.productName}\n'
-            'Company: ${product.companyName}\n'
-            'Contact: ${product.contactPhone}\n'
-            'Website: ${product.companyWebsite}\n'
-            'Functions: ${product.mainFunctions}\n'
-            'How to Use: ${product.howToUse}\n'
-            'Summary: ${product.productSummary}')
-        .join('\n\n');
+    return productNames.join('\n');
   }
 }
